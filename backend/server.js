@@ -10,11 +10,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/products", (req, res) => {
+  //res.header("Access-Control-Allow-Origin", "*");
   res.json(products);
 });
 
 app.get("/api/products/:id", (req, res) => {
   const product = products.find((p) => p._id === req.params.id);
+  //res.header("Access-Control-Allow-Origin", "*");
   res.json(product);
 });
 
