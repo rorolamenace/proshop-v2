@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import CheckoutSteps from '../components/CheckoutSteps';
-import Loader from '../components/Loader';
-import { useCreateOrderMutation } from '../slices/ordersApiSlice';
-import { clearCartItems } from '../slices/cartSlice';
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Message from "../components/Message";
+import CheckoutSteps from "../components/CheckoutSteps";
+import Loader from "../components/Loader";
+import { useCreateOrderMutation } from "../slices/ordersApiSlice";
+import { clearCartItems } from "../slices/cartSlice";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -18,9 +18,9 @@ const PlaceOrderScreen = () => {
 
   useEffect(() => {
     if (!cart.shippingAddress.address) {
-      navigate('/shipping');
+      navigate("/shipping");
     } else if (!cart.paymentMethod) {
-      navigate('/payment');
+      navigate("/payment");
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
@@ -32,8 +32,8 @@ const PlaceOrderScreen = () => {
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
-        shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
+        shippingPrice: cart.shippingPrice,
         totalPrice: cart.totalPrice,
       }).unwrap();
       dispatch(clearCartItems());
@@ -48,13 +48,13 @@ const PlaceOrderScreen = () => {
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
                 <strong>Address: </strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
-                {cart.shippingAddress.postalCode},{' '}
+                {cart.shippingAddress.address}, {cart.shippingAddress.city}{" "}
+                {cart.shippingAddress.postalCode},{" "}
                 {cart.shippingAddress.country}
               </p>
             </ListGroup.Item>
@@ -70,7 +70,7 @@ const PlaceOrderScreen = () => {
               {cart.cartItems.length === 0 ? (
                 <Message>Your cart is empty</Message>
               ) : (
-                <ListGroup variant='flush'>
+                <ListGroup variant="flush">
                   {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
@@ -101,7 +101,7 @@ const PlaceOrderScreen = () => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
@@ -131,13 +131,13 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 {error && (
-                  <Message variant='danger'>{error.data.message}</Message>
+                  <Message variant="danger">{error.data.message}</Message>
                 )}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
-                  type='button'
-                  className='btn-block'
+                  type="button"
+                  className="btn-block"
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
