@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Header />
       <main className="py-3">
         <Container>
@@ -15,7 +16,6 @@ const App = () => {
         </Container>
       </main>
       <Footer />
-      <ToastContainer/>
     </>
   );
 };

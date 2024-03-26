@@ -9,8 +9,7 @@ import {
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import App from "./App.jsx";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
@@ -30,7 +29,9 @@ const router = createBrowserRouter(
     </Route>
   )
 );
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -39,4 +40,4 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
+//reportWebVitals();
