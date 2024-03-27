@@ -47,8 +47,8 @@ const RegisterScreen = () => {
         console.log(email, password);
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
-      } catch (error) {
-        toast.error(error?.data?.message || error?.error);
+      } catch (err) {
+        toast.error(err?.data?.message || err?.error);
       }
     }
   };
