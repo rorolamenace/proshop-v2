@@ -156,7 +156,7 @@ const OrderScreen = () => {
                 <Message>Order is empty</Message>
               ) : (
                 <ListGroup variant="flush">
-                  {order.orderItems.map((item, index) => {
+                  {order.orderItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
@@ -177,8 +177,8 @@ const OrderScreen = () => {
                           {(item.qty * (item.price * 100)) / 100}
                         </Col>
                       </Row>
-                    </ListGroup.Item>;
-                  })}
+                    </ListGroup.Item>
+                 ))}
                 </ListGroup>
               )}
             </ListGroup.Item>
