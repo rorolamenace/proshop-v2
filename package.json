@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "eCommerce application built with the MERN stack.",
   "type": "module",
-  "proxy":"http://localhost:5000",
+  "proxy": "http://localhost:5000",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -22,7 +22,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.2.3"
+    "mongoose": "^8.2.3",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
