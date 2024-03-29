@@ -91,6 +91,7 @@ const ProductEditScreen = () => {
       <FormContainer>
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
+        {loadingUpload && <Loader />}
 
         {isLoading ? (
           <Loader />
@@ -134,7 +135,7 @@ const ProductEditScreen = () => {
                 type="text"
                 placeholder="Enter image url"
                 value={image}
-                onChange={(e) => setImage}
+                onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
               <Form.Control
                 type="file"
