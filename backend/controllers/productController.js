@@ -5,7 +5,7 @@ import Product from "../models/productModel.js";
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 4;
+  const pageSize = 20;
   const page = Number(req.query.pageNumber) || 1;
   const count = await Product.countDocuments({});
 
@@ -27,6 +27,14 @@ const getProductById = asyncHandler(async (req, res) => {
 
   res.status(404);
   throw new Error("Resource not found");
+});
+
+// @desc    Get top rated products
+// @route   GET /api/products/top
+// @access  Public
+const getTopProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+  return res.status(200).json(products);
 });
 
 // @desc    Create a product
@@ -138,4 +146,5 @@ export {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopProducts,
 };
