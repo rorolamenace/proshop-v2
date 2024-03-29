@@ -30,8 +30,8 @@ const ProductListScreen = () => {
     }
   };
 
-  const deleteHandler = async (id) => {
-    if (window.confirm("Are you sure?")) {
+  const deleteHandler = async (id, name) => {
+    if (window.confirm(`Are you sure to delete '${name}'?`)) {
       try {
         await deleteProduct(id);
         toast.success("Product deleted");
@@ -92,7 +92,7 @@ const ProductListScreen = () => {
                     <Button
                       className="btn-sm"
                       variant="danger"
-                      onClick={() => deleteHandler(product._id)}
+                      onClick={() => deleteHandler(product._id, product.name)}
                     >
                       <FaTrash style={{ color: "white" }} />
                     </Button>

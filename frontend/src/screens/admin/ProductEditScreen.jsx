@@ -51,7 +51,7 @@ const ProductEditScreen = () => {
         description,
       }).unwrap();
 
-      toast.success("Product updated");
+      toast.success("Product updated successfully");
       refetch();
       navigate("/admin/productlist");
     } catch (err) {
