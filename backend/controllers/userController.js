@@ -116,7 +116,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @route   GET /api/users
 // @access  Private/Admin
 const getUsers = asyncHandler(async (req, res) => {
-  const pageSize = 20;
+  const pageSize = process.env.PAGINATION_LIMIT_ADMIN_USERS;
   const page = Number(req.query.pageNumber) || 1;
   const count = await User.countDocuments({});
 
